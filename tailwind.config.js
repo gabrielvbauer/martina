@@ -7,12 +7,41 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        gray: {
+          100: '#CEC8C8',
+          800: '#29292F',
+          900: '#1D1D21'
+        },
+
+        pink: {
+          500: '#EA017F'
+        }
       },
+
+      backgroundImage: {
+        'tina-banner-01': "url('../img/05.jpg')"
+      },
+
+      keyframes: {
+        overlayShow: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 0.8 }
+        },
+
+        contentShow: {
+          '0%': { opacity: 0, transform: 'translate(-50%, -49.9%) scale(0.99)' },
+          '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
+        }
+      },
+
+      animation: {
+        overlayShow: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+        contentShow: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)'
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')
+  ],
 }
